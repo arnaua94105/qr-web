@@ -1,0 +1,26 @@
+{
+  "name": "QR Studio",
+  "url": "https://qr-studio.example",
+  "lang": "es",
+  "owner": {
+    "legalName": "[PENDIENTE: nombre o razón social del titular]",
+    "taxId": "[PENDIENTE: NIF/CIF]",
+    "address": "[PENDIENTE: domicilio del titular]",
+    "email": "[PENDIENTE: correo de contacto]",
+    "registry": "[PENDIENTE: datos registrales, si procede]"
+  },
+  "adsense": {
+    "enabled": true,
+    "publisherId": "ca-pub-XXXXXXXXXXXXXXXX",
+    "slots": {
+      "home": "0000000001",
+      "article": "0000000002",
+      "resources": "0000000003"
+    },
+    "autoAds": false
+  },
+  "consent": {
+    "provider": "builtin",
+    "storageKey": "qrs.consent.v1"
+  }
+}

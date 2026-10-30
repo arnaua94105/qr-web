@@ -1,0 +1,10 @@
+import { createRequire } from 'node:module';
+const require = createRequire('/opt/npm-tools/');
+const { chromium } = require('/opt/npm-tools/node_modules/playwright');
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1200, height: 630 } });
+await p.goto((process.argv[2] || 'http://localhost:4173') + '/');
+await p.setContent(`<style>@font-face{font-family:B;src:url(http://localhost:4173/fonts/bebas-neue.woff)}body{margin:0;width:1200px;height:630px;display:flex;background:#fff;font-family:B}.t{flex:1;padding:64px;display:flex;flex-direction:column;justify-content:space-between}h1{font-weight:400;font-size:132px;line-height:.88;margin:0;text-transform:uppercase}small{font:500 26px sans-serif;color:#555}img{height:630px;width:auto}.a{background:#a1ffcb;padding:0 .08em}</style><div class=t><h1>Del código<br>a la <span class=a>pieza</span></h1><small>QR Studio · códigos QR y modelos 3D</small></div><img src="http://localhost:4173/img/placa-qr-3d.png">`);
+await p.waitForTimeout(800);
+await p.screenshot({ path: 'src/web/img/og.png' });
+await b.close();

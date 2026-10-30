@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Generador de códigos QR por lotes (ZIP) · QR Studio</title>
+<meta name="description" content="Pega una lista de enlaces y descarga un ZIP con un código QR en PNG y SVG por cada uno, más un índice CSV. Hasta 200 códigos, sin subir nada a servidores.">
+<link rel="canonical" href="https://qr-studio.example/herramientas/lotes/">
+
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QR Studio">
+<meta property="og:title" content="Generador de códigos QR por lotes (ZIP) · QR Studio">
+<meta property="og:description" content="Pega una lista de enlaces y descarga un ZIP con un código QR en PNG y SVG por cada uno, más un índice CSV. Hasta 200 códigos, sin subir nada a servidores.">
+<meta property="og:url" content="https://qr-studio.example/herramientas/lotes/">
+<meta property="og:image" content="https://qr-studio.example/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/bebas-neue.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/garamond-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/site.css">
+
+
+</head>
+<body class="is-site">
+<a class="skip" href="#main">Saltar al contenido</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+<symbol id="mark" viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" d="M2 2h12v12H2zM5 5v6h6V5zM18 2h12v12H18zM21 5v6h6V5zM2 18h12v12H2zM5 21v6h6v-6zM18 18h5v5h-5zM25 25h5v5h-5z"/><rect x="25" y="18" width="5" height="5" fill="#a1ffcb" stroke="currentColor" stroke-width="1.2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="23" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="23" width="2" height="2" fill="currentColor"/></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h10a6 6 0 0 1 0 12h-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-redo" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5M20 9H10a6 6 0 0 0 0 12h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h6l2 2h10v11H3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 4 2.5 20h19zM12 10v4.5M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5.5M12 7.6v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V4H4v12h4" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-3-5.4 3 1.1-6-4.5-4.2 6.1-.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+<symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+<symbol id="i-content" viewBox="0 0 24 24"><path d="M5 6h14M5 11h14M5 16h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-shapes" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="7.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m7.5 14 3.5 6H4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><rect x="14" y="14" width="6" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 1.6-2-.5-1.2.1-2.5 1.6-2.5H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7.5" cy="11" r="1.1" fill="currentColor"/><circle cx="10" cy="7" r="1.1" fill="currentColor"/><circle cx="14.5" cy="7" r="1.1" fill="currentColor"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="9" cy="10" r="1.7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m4 18 5-5 4 4 3-3 4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 7V5h14v2M12 5v14M9 19h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M13 4v6M7 14v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V5h3M17 4h3v4M20 16v3h-3M7 20H4v-3M4 12h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 16.7v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v5h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5m0 0-4 4m4-4 4 4M5 20h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</defs>
+</svg>
+
+<header class="site-head">
+  <a class="wordmark" href="/" aria-label="QR Studio, inicio"><svg class="wordmark-mark" aria-hidden="true"><use href="#mark"/></svg><span>QR Studio</span></a>
+  <nav class="site-nav" aria-label="Principal">
+    <a href="/plantillas/">Plantillas</a>
+    <a href="/laboratorio-3d/">Laboratorio 3D</a>
+    <a href="/herramientas/">Herramientas</a>
+    <a href="/guias/">Guías</a>
+  </nav>
+  <a class="btn btn-accent btn-small" href="/crear/">Crear QR</a>
+</header>
+
+<main id="main">
+<div class="page">
+  <div class="page-head"><div class="crumbs"><a href="/herramientas/">Herramientas</a> / QR por lotes</div><h1>QR por lotes</h1><p class="lead">Una línea por código. Usa el diseño del editor (formas, colores, logotipo) y genera un ZIP con PNG, SVG y un índice CSV.</p></div>
+  <div class="tool">
+    <form id="form" novalidate>
+      <div class="field"><label for="list">Enlaces (uno por línea, máximo 200)</label><textarea id="list" spellcheck="false" placeholder="https://example.com/mesa-1&#10;Mesa 2 | https://example.com/mesa-2"></textarea><p class="field-hint">Opcional: «nombre | enlace» para elegir el nombre del archivo.</p></div>
+      <div class="field"><label for="px">Tamaño del PNG (píxeles)</label><select id="px"><option>512</option><option selected>1024</option><option>2048</option></select></div>
+      <button class="btn btn-ink" type="submit" id="go">Generar ZIP</button>
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+      <p id="msg" role="status" class="field-hint"></p>
+    </form>
+    <div class="result"><p id="design-note">Diseño: se usa el último del editor en este navegador. <a href="/crear/">Cambiar diseño</a>.</p><p>Las líneas no válidas (vacías, con espacios o sin dominio) se omiten y se listan al final. Los nombres repetidos se numeran.</p></div>
+  </div>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="foot-grid">
+    <p class="foot-invite">Pega un enlace y míralo convertirse en un objeto.</p>
+    <nav aria-label="Herramientas"><h2>Herramientas</h2><ul>
+      <li><a href="/crear/">Editor de códigos QR</a></li>
+      <li><a href="/laboratorio-3d/">Laboratorio 3D</a></li>
+      <li><a href="/plantillas/">Plantillas</a></li>
+      <li><a href="/herramientas/lotes/">QR por lotes</a></li>
+      <li><a href="/herramientas/calculadora-tamano-qr/">Calculadora de tamaño</a></li>
+    </ul></nav>
+    <nav aria-label="Guías"><h2>Guías</h2><ul>
+      <li><a href="/guias/qr-para-url/">QR para un enlace</a></li>
+      <li><a href="/guias/qr-wifi/">QR para el Wi-Fi</a></li>
+      <li><a href="/guias/qr-con-logotipo/">QR con logotipo</a></li>
+      <li><a href="/guias/qr-llavero-3d/">Llavero QR en 3D</a></li>
+      <li><a href="/guias/qr-no-escanea/">Mi QR no escanea</a></li>
+      <li><a href="/guias/">Todas las guías</a></li>
+    </ul></nav>
+    <nav aria-label="Legal"><h2>Legal</h2><ul>
+      <li><a href="/legal/privacidad/">Privacidad</a></li>
+      <li><a href="/legal/cookies/">Cookies</a></li>
+      <li><a href="/legal/publicidad/">Publicidad</a></li>
+      <li><a href="/legal/aviso-legal/">Aviso legal</a></li>
+      <li><a href="/legal/condiciones/">Condiciones de uso</a></li>
+      <li><a href="/contacto/">Contacto</a></li>
+      <li><button type="button" class="link-btn" data-consent-open>Preferencias de cookies</button></li>
+    </ul></nav>
+  </div>
+  <p class="foot-note">Todo se procesa en tu navegador: tus códigos, logotipos y proyectos no se envían a ningún servidor. Fuentes: Bebas Neue y EB Garamond (SIL OFL), Inter (SIL OFL).</p>
+  <div class="foot-name" aria-hidden="true">QR STUDIO</div>
+</footer>
+
+<script type="module" src="/js/app/site.js"></script>
+<script type="module" src="/js/app/batch.js"></script>
+</body>
+</html>
