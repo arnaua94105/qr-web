@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+{{robots}}
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{siteName}}">
+<meta property="og:title" content="{{ogtitle}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{ogimage}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/bebas-neue.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/garamond-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/site.css">
+{{css}}
+{{jsonld}}
+</head>
+<body class="{{bodyClass}}">
+<a class="skip" href="#main">Saltar al contenido</a>
+{{sprite}}
+{{header}}
+<main id="main">
+{{content}}
+</main>
+{{footer}}
+<script type="module" src="/js/app/site.js"></script>
+{{script}}
+</body>
+</html>
