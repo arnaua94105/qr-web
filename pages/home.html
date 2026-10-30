@@ -1,0 +1,67 @@
+<!--meta {"title":"Códigos QR personalizados y modelos 3D para imprimir","description":"Diseña códigos QR con tus colores, formas y logotipo, comprueba que se leen y conviértelos en placas o llaveros 3D. Gratis, sin registro y en tu navegador.","path":"/","rawTitle":true,"css":[],"script":"app/home.js","priority":"1.0","schema":[{"@context":"https://schema.org","@type":"WebSite","name":"QR Studio","url":"{{siteUrl}}/"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿QR Studio es gratis y necesita registro?","acceptedAnswer":{"@type":"Answer","text":"Es gratis y no pide registro. Los códigos se generan en tu navegador y puedes descargarlos sin marcas de agua."}},{"@type":"Question","name":"¿Los códigos QR caducan?","acceptedAnswer":{"@type":"Answer","text":"No. Los códigos son estáticos: contienen directamente tu enlace o texto, así que no dependen de ningún servicio nuestro y no caducan."}},{"@type":"Question","name":"¿Puedo imprimir un QR en 3D?","acceptedAnswer":{"@type":"Answer","text":"Sí. El Laboratorio 3D genera un modelo a partir de la matriz real del código y lo exporta a STL, 3MF, OBJ y GLB, con comprobaciones de imprimibilidad."}},{"@type":"Question","name":"¿Se garantiza que mi QR se lee con cualquier móvil?","acceptedAnswer":{"@type":"Answer","text":"No se puede garantizar. La herramienta comprueba la lectura con un decodificador propio y avisa de riesgos, pero conviene probar el resultado impreso con un móvil."}}]}]} -->
+<section class="hero">
+  <h1>Pega un enlace. Míralo <span class="tile" id="hero-qr" aria-hidden="true"></span> hacerse <span class="tile dark" id="hero-3d" aria-hidden="true"></span> objeto.</h1>
+  <div class="hero-sub">
+    <p>Diseña códigos QR con tus colores, formas y logotipo, comprueba que se leen y conviértelos en placas o llaveros que puedes imprimir en 3D.</p>
+    <div class="hero-actions">
+      <a class="btn btn-accent" href="/crear/">Crear un QR</a>
+      <a class="btn" href="/laboratorio-3d/">Abrir el laboratorio 3D</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-muestra">
+  <h2 id="h-muestra">Del código a la pieza</h2>
+  <div class="showcase">
+    <figure><img src="/img/placa-qr-3d.png" width="980" height="721" loading="lazy" alt="Placa rectangular con un código QR en relieve, vista isométrica del modelo 3D"><figcaption><strong>Placa en relieve.</strong> La matriz real del código, módulo a módulo, a escala en milímetros.</figcaption></figure>
+    <figure><img src="/img/llavero-qr-3d.png" width="980" height="721" loading="lazy" alt="Llavero con código QR en relieve y anilla con orificio"><figcaption><strong>Llavero.</strong> Anilla con pared mínima comprobada.</figcaption></figure>
+    <figure><img src="/img/dos-colores-qr-3d.png" width="980" height="721" loading="lazy" alt="Modelo QR de dos piezas separadas, base clara y módulos oscuros"><figcaption><strong>Dos colores.</strong> Base y módulos como piezas separadas para impresión multicolor.</figcaption></figure>
+    <figure><img src="/img/grabado-qr-3d.png" width="980" height="721" loading="lazy" alt="Placa con los módulos del código QR grabados en hueco"><figcaption><strong>Grabado.</strong> Módulos hundidos con profundidad controlada.</figcaption></figure>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-como">
+  <h2 id="h-como">Tres pasos, sin cuenta</h2>
+  <ol class="steps">
+    <li><h3>Escribe qué debe abrir</h3><p>Enlace, Wi-Fi, contacto, evento, ubicación, mensaje… El editor valida cada campo antes de generar.</p></li>
+    <li><h3>Dale tu estilo y compruébalo</h3><p>Formas, colores, logotipo, marco y plantillas. Un decodificador propio lee el resultado y avisa si algo lo dificulta.</p></li>
+    <li><h3>Descárgalo o pásalo a 3D</h3><p>SVG, PNG y PDF para imprimir en papel. STL, 3MF, OBJ y GLB para impresión 3D.</p></li>
+  </ol>
+</section>
+
+<div class="ad-slot" data-slot="home" data-state="idle"></div>
+
+<section class="section">
+  <p class="statement">Todo ocurre <em>en tu navegador</em>: ni tus enlaces, ni tus logotipos, ni tus proyectos viajan a ningún servidor. Los códigos son estáticos, así que no caducan ni dependen de nosotros.</p>
+</section>
+
+<section class="section" aria-labelledby="h-tipos">
+  <h2 id="h-tipos">Qué puede abrir tu código</h2>
+  <div class="table-wrap"><table class="rows">
+    <thead class="sr-only"><tr><th>Tipo</th><th>Qué hace al escanearlo</th></tr></thead>
+    <tbody>
+      <tr><th scope="row"><a href="/guias/qr-para-url/">Enlace web</a></th><td>Abre una página en el navegador.</td></tr>
+      <tr><th scope="row"><a href="/guias/qr-wifi/">Wi-Fi</a></th><td>Propone conectarse a tu red sin teclear la contraseña.</td></tr>
+      <tr><th scope="row"><a href="/guias/qr-tarjeta-de-visita/">Contacto (vCard)</a></th><td>Ofrece guardar nombre, teléfono, correo y empresa en la agenda.</td></tr>
+      <tr><th scope="row">Correo, teléfono y SMS</th><td>Prepara un mensaje o una llamada con los datos ya escritos.</td></tr>
+      <tr><th scope="row">Ubicación y evento</th><td>Abre el mapa en unas coordenadas o añade una cita al calendario.</td></tr>
+      <tr><th scope="row"><a href="/guias/qr-redes-sociales/">Redes sociales</a></th><td>Lleva a un perfil en la red que elijas.</td></tr>
+      <tr><th scope="row">Transferencia SEPA</th><td>Rellena los datos de un pago en la app bancaria compatible. Valida el IBAN antes de generar.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="section" aria-labelledby="h-faq">
+  <h2 id="h-faq">Preguntas frecuentes</h2>
+  <div class="faq">
+    <details><summary>¿QR Studio es gratis y necesita registro?</summary><div>Es gratis y no pide registro. Los códigos se generan en tu navegador y puedes descargarlos sin marcas de agua. El sitio puede mostrar publicidad, siempre separada de los controles y solo si lo aceptas (<a href="/legal/publicidad/">más información</a>).</div></details>
+    <details><summary>¿Los códigos QR caducan?</summary><div>No. Son estáticos: llevan dentro tu enlace o texto. Si el enlace deja de existir, el código dejará de servir, pero eso depende de la web de destino, no de este sitio.</div></details>
+    <details><summary>¿Puedo imprimir un QR en 3D?</summary><div>Sí. El <a href="/laboratorio-3d/">Laboratorio 3D</a> construye la geometría desde la matriz real del código y la exporta a STL, 3MF, OBJ y GLB. Comprueba grosores, módulo mínimo, anilla y mallas cerradas, y te lo dice con claridad; no puede garantizar el resultado en tu impresora.</div></details>
+    <details><summary>¿Se garantiza que se lee con cualquier móvil?</summary><div>No se puede garantizar. El editor distingue entre «generado», «decodificado en una simulación» y «requiere prueba con un móvil real». Antes de imprimir en serie, prueba una copia con varios teléfonos.</div></details>
+    <details><summary>¿Dónde se guardan mis proyectos?</summary><div>En este navegador (IndexedDB o almacenamiento local). No hay sincronización en la nube: si borras los datos del sitio, se pierden. Exporta un archivo de proyecto para tener copia.</div></details>
+  </div>
+</section>
+
+<section class="section">
+  <p class="cta-sentence">Empieza con <a href="/crear/">tu primer código</a>.</p>
+</section>

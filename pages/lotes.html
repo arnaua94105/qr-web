@@ -1,0 +1,14 @@
+<!--meta {"title":"Generador de códigos QR por lotes (ZIP)","description":"Pega una lista de enlaces y descarga un ZIP con un código QR en PNG y SVG por cada uno, más un índice CSV. Hasta 200 códigos, sin subir nada a servidores.","path":"/herramientas/lotes/","css":[],"script":"app/batch.js","priority":"0.7"} -->
+<div class="page">
+  <div class="page-head"><div class="crumbs"><a href="/herramientas/">Herramientas</a> / QR por lotes</div><h1>QR por lotes</h1><p class="lead">Una línea por código. Usa el diseño del editor (formas, colores, logotipo) y genera un ZIP con PNG, SVG y un índice CSV.</p></div>
+  <div class="tool">
+    <form id="form" novalidate>
+      <div class="field"><label for="list">Enlaces (uno por línea, máximo 200)</label><textarea id="list" spellcheck="false" placeholder="https://example.com/mesa-1&#10;Mesa 2 | https://example.com/mesa-2"></textarea><p class="field-hint">Opcional: «nombre | enlace» para elegir el nombre del archivo.</p></div>
+      <div class="field"><label for="px">Tamaño del PNG (píxeles)</label><select id="px"><option>512</option><option selected>1024</option><option>2048</option></select></div>
+      <button class="btn btn-ink" type="submit" id="go">Generar ZIP</button>
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+      <p id="msg" role="status" class="field-hint"></p>
+    </form>
+    <div class="result"><p id="design-note">Diseño: se usa el último del editor en este navegador. <a href="/crear/">Cambiar diseño</a>.</p><p>Las líneas no válidas (vacías, con espacios o sin dominio) se omiten y se listan al final. Los nombres repetidos se numeran.</p></div>
+  </div>
+</div>

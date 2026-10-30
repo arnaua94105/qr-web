@@ -1,0 +1,35 @@
+<!--meta {"title":"Editor de códigos QR personalizables","description":"Crea códigos QR de enlace, Wi-Fi, contacto, evento y más. Cambia formas, colores y logotipo, comprueba la lectura y descarga en SVG, PNG o PDF. Gratis y sin registro.","path":"/crear/","app":true,"css":["app"],"script":"app/editor-boot.js","priority":"1.0","schema":{"@context":"https://schema.org","@type":"WebApplication","name":"Editor de códigos QR · QR Studio","applicationCategory":"DesignApplication","operatingSystem":"Cualquiera con navegador moderno","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Generador de códigos QR personalizables con exportación a SVG, PNG y PDF."}} -->
+<h1 class="sr-only">Editor de códigos QR</h1>
+<div class="studio" id="studio">
+  <section class="tools" aria-label="Herramientas de edición">
+    <div class="tabs" role="tablist" aria-label="Secciones del editor" id="tabs"></div>
+    <div class="panels" id="panels"></div>
+  </section>
+  <section class="stage" aria-label="Vista previa">
+    <div class="stage-canvas" id="stage-canvas">
+      <div class="preview" id="preview"></div>
+      <p class="preview-msg" id="preview-msg" role="status" hidden></p>
+    </div>
+    <div class="stage-bar">
+      <span id="stage-info" class="stage-info"></span>
+      <button type="button" class="btn btn-small" id="scan-btn">
+        <svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>Comprobar lectura
+      </button>
+    </div>
+    <div id="verdict" class="verdict" hidden aria-live="polite"></div>
+  </section>
+  <aside class="inspector" id="inspector" aria-label="Revisión del diseño">
+    <h2>Revisión</h2>
+    <div id="checks" class="checks"></div>
+    <div class="quick">
+      <h3>Descarga rápida</h3>
+      <div class="quick-row">
+        <button type="button" class="btn btn-ink btn-small" data-export="svg">SVG</button>
+        <button type="button" class="btn btn-ink btn-small" data-export="png">PNG</button>
+        <button type="button" class="btn btn-ink btn-small" data-export="pdf">PDF</button>
+      </div>
+      <p class="field-hint">Más opciones en la sección Exportación.</p>
+    </div>
+  </aside>
+</div>
+<noscript><p class="note" style="margin:24px">El editor necesita JavaScript. Todo funciona en tu navegador y no se envía ningún dato a servidores.</p></noscript>

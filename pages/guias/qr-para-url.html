@@ -1,0 +1,19 @@
+<!--meta {"title": "Cómo crear un código QR para un enlace web", "description": "Guía para crear un QR que abra tu web: longitud del enlace, parámetros de seguimiento, redirecciones, tamaño y comprobación antes de imprimir.", "path": "/guias/qr-para-url/", "css": [], "priority": "0.7", "schema": {"@context": "https://schema.org", "@type": "Article", "headline": "Cómo crear un código QR para un enlace web", "description": "Guía para crear un QR que abra tu web: longitud del enlace, parámetros de seguimiento, redirecciones, tamaño y comprobación antes de imprimir.", "inLanguage": "es", "mainEntityOfPage": "{{siteUrl}}/guias/qr-para-url/", "dateModified": "2026-10-30"}} -->
+<div class="page">
+<article>
+<div class="page-head"><div class="crumbs"><a href="/guias/">Guías</a> / Cómo crear un código QR para un enlace web</div><h1>Cómo crear un código QR para un enlace web</h1><p class="lead">Un QR de enlace es el más usado y también el que más se estropea por detalles evitables.</p></div>
+<div class="prose">
+<h2>Empieza por el enlace correcto</h2>
+<p>Pega la dirección completa, con <code>https://</code>. Si la escribes sin esquema, el editor lo añade y te lo indica. Evita direcciones temporales (enlaces de vista previa, sesiones, <code>localhost</code>): el código seguirá existiendo cuando la dirección ya no.</p>
+<h2>Cuanto más corto, más fácil de leer</h2>
+<p>Cada carácter extra añade módulos y los módulos se hacen más pequeños. Un enlace de 25 caracteres suele caber en un QR de 25×25 módulos; uno de 150, en uno de 41×41 o más. Si tu enlace es largo, crea una página de destino con una dirección corta en tu propio dominio y redirige desde ahí.</p><ul><li>Quita parámetros que no necesites.</li><li>Prefiere rutas legibles (<code>/carta</code>) a identificadores largos.</li><li>Si usas parámetros de campaña (<code>utm_</code>), mantenlos mínimos.</li></ul>
+<div class="ad-slot" data-slot="article" data-state="idle"></div>
+<h2>Estático frente a redirigido</h2>
+<p>Los códigos de QR Studio son <strong>estáticos</strong>: contienen el enlace tal cual. Ventaja: no caducan ni dependen de ningún servicio. Inconveniente: no puedes cambiar el destino después de imprimir. Si necesitas esa flexibilidad, apunta el QR a una dirección tuya que luego redirija donde quieras.</p>
+<h2>Antes de imprimir</h2>
+<ol><li>Pulsa «Comprobar lectura» en el editor.</li><li>Imprime una prueba al tamaño real.</li><li>Léela con dos o tres móviles y con luz mala.</li></ol><p>Más sobre tamaños en la <a href="/herramientas/calculadora-tamano-qr/">calculadora</a> y sobre fallos en <a href="/guias/qr-no-escanea/">Mi QR no escanea</a>.</p>
+</div>
+<div class="cta-band"><p>Crea tu código ahora.</p><a class="btn" href="/crear/">Abrir el editor</a></div>
+<aside class="related"><h2>Sigue leyendo</h2><ul><li><a href="/guias/qr-no-escanea/">Mi código QR no escanea: causas y soluciones</a></li><li><a href="/guias/qr-con-logotipo/">Cómo poner un logotipo en un código QR sin que deje de leerse</a></li><li><a href="/guias/qr-para-imprimir/">Cómo imprimir un código QR: tamaño, contraste y formato</a></li></ul></aside>
+</article>
+</div>

@@ -1,0 +1,20 @@
+<!--meta {"title":"Calculadora de tamaño de códigos QR","description":"Calcula qué tamaño imprimir un código QR según la distancia de lectura y el número de módulos. Incluye conversión entre milímetros, centímetros y pulgadas.","path":"/herramientas/calculadora-tamano-qr/","css":[],"script":"app/calc.js","priority":"0.7"} -->
+<div class="page">
+  <div class="page-head"><div class="crumbs"><a href="/herramientas/">Herramientas</a> / Calculadora de tamaño</div><h1>Calculadora de tamaño</h1><p class="lead">Un QR se lee cuando cada módulo (cuadradito) es lo bastante grande para la cámara a esa distancia. Esta calculadora usa una regla práctica, no una garantía.</p></div>
+  <div class="tool">
+    <div>
+      <div class="field"><label for="dist">Distancia de lectura</label><input id="dist" type="number" min="1" step="any" value="50"></div>
+      <div class="field"><label for="du">Unidad de la distancia</label><select id="du"><option value="cm" selected>centímetros</option><option value="m">metros</option><option value="in">pulgadas</option></select></div>
+      <div class="field"><label for="mods">Módulos por lado (21 – 177)</label><input id="mods" type="number" min="21" max="177" step="1" value="29"><p class="field-hint">Lo ves en el editor, en «Revisión». Más contenido = más módulos.</p></div>
+      <div class="field"><label for="quiet">Zona de silencio (módulos por lado)</label><input id="quiet" type="number" min="0" max="10" step="1" value="4"></div>
+    </div>
+    <div class="result" aria-live="polite"><p class="big" id="big">—</p><dl id="out"></dl>
+      <h2 style="font-size:1.8rem;margin:28px 0 12px">Conversor</h2>
+      <div class="field"><label for="cv">Valor</label><input id="cv" type="number" step="any" value="25"></div>
+      <div class="field"><label for="cu">Unidad</label><select id="cu"><option value="mm" selected>mm</option><option value="cm">cm</option><option value="in">pulgadas</option><option value="px300">píxeles a 300 ppp</option></select></div>
+      <dl id="conv"></dl>
+    </div>
+  </div>
+  <div class="prose" style="margin-top:56px"><h2>Cómo se calcula</h2><p>Se parte de la regla habitual de <strong>distancia ÷ 10</strong> para el lado del símbolo, y se exige un módulo mínimo de unos 0,33 mm para impresión láser o de oficina. Con códigos densos (muchos módulos), el módulo manda: un QR de 57 módulos necesita bastante más tamaño que uno de 25. Con impresoras 3D, usa los avisos del <a href="/laboratorio-3d/">Laboratorio 3D</a>.</p><p>Las cámaras, la luz y el contraste cambian el resultado: imprime una prueba y léela con un móvil antes de producir en serie.</p></div>
+  <div class="ad-slot" data-slot="article" data-state="idle"></div>
+</div>

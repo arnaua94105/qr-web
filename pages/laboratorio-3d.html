@@ -1,0 +1,63 @@
+<!--meta {"title":"Laboratorio 3D: convierte tu QR en un modelo imprimible","description":"Convierte un código QR en una placa o llavero 3D con geometría real en milímetros. Visor interactivo, comprobaciones de imprimibilidad y descarga en STL, OBJ, GLB y 3MF.","path":"/laboratorio-3d/","app":true,"css":["app"],"script":"app/lab-boot.js","priority":"0.9","schema":{"@context":"https://schema.org","@type":"WebApplication","name":"Laboratorio 3D · QR Studio","applicationCategory":"DesignApplication","operatingSystem":"Cualquiera con navegador moderno","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Genera modelos 3D de códigos QR para impresión 3D y los exporta a STL, OBJ, GLB y 3MF."}} -->
+<h1 class="sr-only">Laboratorio 3D</h1>
+<div class="lab" id="lab">
+  <section class="tools lab-tools" aria-label="Parámetros del modelo">
+    <div class="lab-intro">
+      <p id="lab-source" class="panel-lead"></p>
+      <a class="btn btn-small" href="/crear/"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>Editar el QR</a>
+    </div>
+    <div class="panels" id="lab-panels"></div>
+  </section>
+  <section class="stage lab-stage" id="lab-stage" aria-label="Vista 3D">
+    <div class="viewer-wrap">
+      <canvas id="lab-canvas" tabindex="0" aria-label="Modelo 3D del código QR. Arrastra para girar, rueda para acercar. Flechas para girar con el teclado, más y menos para el zoom."></canvas>
+      <div id="lab-measures" class="measures" aria-hidden="true"></div>
+      <div id="lab-fallback" class="gl-fallback" hidden><div></div><p>Tu navegador no ofrece WebGL, así que no se puede mostrar la vista 3D. Se muestra el código en 2D; la generación y las descargas funcionan igual.</p></div>
+      <p id="lab-empty" class="preview-msg" hidden>Primero crea un código válido en el <a href="/crear/">editor</a>.</p>
+    </div>
+    <div class="stage-bar lab-bar">
+      <span id="lab-status" class="stage-info" role="status"></span>
+      <span id="lab-dims" class="stage-info dims"></span>
+    </div>
+    <div class="viewctl" id="lab-viewctl">
+      <div class="viewctl-row" role="group" aria-label="Vistas">
+        <button type="button" class="btn btn-small" data-view="iso">Isométrica</button>
+        <button type="button" class="btn btn-small" data-view="front">Frente</button>
+        <button type="button" class="btn btn-small" data-view="top">Planta</button>
+        <button type="button" class="btn btn-small" data-view="side">Lateral</button>
+      </div>
+      <div class="viewctl-row opts">
+        <label class="check"><input type="checkbox" id="opt-ortho"><span>Ortográfica</span></label>
+        <label class="check"><input type="checkbox" id="opt-grid" checked><span>Cuadrícula de 10 mm</span></label>
+        <label class="check"><input type="checkbox" id="opt-measures" checked><span>Cotas</span></label>
+        <label class="check"><input type="checkbox" id="opt-spin"><span>Girar solo</span></label>
+      </div>
+      <div class="viewctl-row opts">
+        <label class="mini">Material <select id="opt-material"><option value="matte">Mate</option><option value="satin">Satinado</option><option value="gloss">Brillante</option></select></label>
+        <label class="mini">Luz (ángulo) <input type="range" id="opt-light-az" min="-3.14" max="3.14" step="0.05" value="0.9"></label>
+        <label class="mini">Intensidad <input type="range" id="opt-light-int" min="0.2" max="1.6" step="0.05" value="1"></label>
+        <button type="button" class="btn btn-small" id="opt-view-shot">Captura PNG</button>
+      </div>
+    </div>
+  </section>
+  <aside class="inspector" aria-label="Revisión y descarga">
+    <h2>Imprimibilidad</h2>
+    <div id="lab-verdict" class="verdict" aria-live="polite"></div>
+    <div id="lab-checks" class="checks"></div>
+    <div class="quick">
+      <h3>Piezas</h3>
+      <div id="lab-parts" class="parts"></div>
+      <h3>Descargar</h3>
+      <div class="quick-row">
+        <button type="button" class="btn btn-ink btn-small" data-dl="stl">STL</button>
+        <button type="button" class="btn btn-ink btn-small" data-dl="3mf">3MF</button>
+        <button type="button" class="btn btn-ink btn-small" data-dl="obj">OBJ</button>
+        <button type="button" class="btn btn-ink btn-small" data-dl="glb">GLB</button>
+      </div>
+      <div class="quick-row"><button type="button" class="btn btn-small" data-dl="zip">ZIP con todo (una pieza por STL)</button></div>
+      <p class="field-hint">Unidades: milímetros. El STL y el OBJ no guardan color; con dos piezas se descargan por separado. 3MF y GLB conservan los colores base.</p>
+      <div class="quick-row"><button type="button" class="btn btn-small" id="lab-save"><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg>Guardar proyecto</button></div>
+    </div>
+  </aside>
+</div>
+<noscript><p class="note" style="margin:24px">El laboratorio 3D necesita JavaScript. Todo se calcula en tu navegador; no se envía ningún dato.</p></noscript>

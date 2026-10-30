@@ -1,0 +1,15 @@
+<!--meta {"title":"Mis proyectos","description":"Tus proyectos de QR Studio guardados en este navegador: abrir, duplicar, renombrar, exportar e importar.","path":"/proyectos/","noindex":true,"app":false,"css":[],"script":"app/projects-page.js"} -->
+<div class="page">
+  <div class="page-head">
+    <h1>Mis proyectos</h1>
+    <p class="lead">Se guardan solo en este navegador (<span id="backend">almacenamiento local</span>). No hay cuenta ni sincronización en la nube: si borras los datos del sitio, desaparecen. Exporta un archivo para tener copia.</p>
+  </div>
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="hero-actions" style="margin-bottom:28px">
+      <a class="btn btn-accent" href="/crear/">Nuevo proyecto</a>
+      <label class="btn" style="cursor:pointer">Importar archivo<input id="import" type="file" accept=".json,.qrstudio,application/json" hidden></label>
+    </div>
+    <p id="empty" class="note" hidden>Todavía no has guardado ningún proyecto. Crea un código en el <a href="/crear/">editor</a> y pulsa «Guardar».</p>
+    <ul class="cards" id="list"></ul>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+/* Sistema de diseño de QR Studio.
+   Dirección (Taste Skill «La frase es la composición»): suelo blanco, tinta casi negra, grises y UN verde menta
+   que solo aparece en la acción principal y en algunas teselas. Display condensado + serif literaria; la interfaz
+   del editor usa Inter porque ahí manda la legibilidad de los controles. */
+@font-face { font-family: 'Bebas Neue'; src: url('/fonts/bebas-neue.woff') format('woff'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'EB Garamond'; src: url('/fonts/garamond-regular.woff') format('woff'); font-weight: 400 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'EB Garamond'; src: url('/fonts/garamond-italic.woff') format('woff'); font-weight: 400 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-Regular.woff') format('woff'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-Medium.woff') format('woff'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-SemiBold.woff') format('woff'); font-weight: 600; font-display: swap; }
+
+:root {
+  color-scheme: light;
+  /* color */
+  --bg: #ffffff;
+  --surface: #f3f3f3;
+  --surface-2: #e9e9e9;
+  --ink: #232323;
+  --muted: #666666;
+  --line: rgba(35, 35, 35, 0.14);
+  --line-strong: rgba(35, 35, 35, 0.34);
+  --accent: #a1ffcb;
+  --accent-ink: #232323;
+  --accent-deep: #0b6b3f;
+  --field-1: #a1ffcb;
+  --field-1-ink: #232323;
+  --field-2: #232323;
+  --field-2-ink: #ffffff;
+  --ok: #0b6b3f; --ok-bg: #e4fbef;
+  --warn: #7a4f00; --warn-bg: #fff3d1;
+  --bad: #a8201a; --bad-bg: #fde9e7;
+  --info: #3d4a57; --info-bg: #eef1f4;
+  /* tipografía */
+  --font-display: 'Bebas Neue', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-text: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2.5rem, 1.2rem + 5vw, 5.5rem);
+  --step-display: clamp(3.4rem, 1rem + 11vw, 9.5rem);
+  /* forma */
+  --r: 4px;
+  --gutter: clamp(16px, 2.4vw, 32px);
+  --measure: 66ch;
+  /* movimiento (Emil Kowalski: ease-out fuerte, <300 ms en UI) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --dur-press: 120ms;
+  --dur-fast: 180ms;
+  --dur: 240ms;
+}

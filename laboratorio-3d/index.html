@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratorio 3D: convierte tu QR en un modelo imprimible · QR Studio</title>
+<meta name="description" content="Convierte un código QR en una placa o llavero 3D con geometría real en milímetros. Visor interactivo, comprobaciones de imprimibilidad y descarga en STL, OBJ, GLB y 3MF.">
+<link rel="canonical" href="https://qr-studio.example/laboratorio-3d/">
+
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QR Studio">
+<meta property="og:title" content="Laboratorio 3D: convierte tu QR en un modelo imprimible · QR Studio">
+<meta property="og:description" content="Convierte un código QR en una placa o llavero 3D con geometría real en milímetros. Visor interactivo, comprobaciones de imprimibilidad y descarga en STL, OBJ, GLB y 3MF.">
+<meta property="og:url" content="https://qr-studio.example/laboratorio-3d/">
+<meta property="og:image" content="https://qr-studio.example/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preload" href="/fonts/bebas-neue.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/garamond-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/app.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Laboratorio 3D · QR Studio","applicationCategory":"DesignApplication","operatingSystem":"Cualquiera con navegador moderno","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Genera modelos 3D de códigos QR para impresión 3D y los exporta a STL, OBJ, GLB y 3MF."}</script>
+</head>
+<body class="is-app">
+<a class="skip" href="#main">Saltar al contenido</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+<symbol id="mark" viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" d="M2 2h12v12H2zM5 5v6h6V5zM18 2h12v12H18zM21 5v6h6V5zM2 18h12v12H2zM5 21v6h6v-6zM18 18h5v5h-5zM25 25h5v5h-5z"/><rect x="25" y="18" width="5" height="5" fill="#a1ffcb" stroke="currentColor" stroke-width="1.2"/><rect x="7" y="7" width="2" height="2" fill="currentColor"/><rect x="23" y="7" width="2" height="2" fill="currentColor"/><rect x="7" y="23" width="2" height="2" fill="currentColor"/></symbol>
+<symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h10a6 6 0 0 1 0 12h-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-redo" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5M20 9H10a6 6 0 0 0 0 12h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h6l2 2h10v11H3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 4 2.5 20h19zM12 10v4.5M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5.5M12 7.6v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V4H4v12h4" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-3-5.4 3 1.1-6-4.5-4.2 6.1-.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+<symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+<symbol id="i-content" viewBox="0 0 24 24"><path d="M5 6h14M5 11h14M5 16h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-shapes" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="7.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m7.5 14 3.5 6H4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><rect x="14" y="14" width="6" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 1.6-2-.5-1.2.1-2.5 1.6-2.5H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="7.5" cy="11" r="1.1" fill="currentColor"/><circle cx="10" cy="7" r="1.1" fill="currentColor"/><circle cx="14.5" cy="7" r="1.1" fill="currentColor"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="9" cy="10" r="1.7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m4 18 5-5 4 4 3-3 4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+<symbol id="i-text" viewBox="0 0 24 24"><path d="M5 7V5h14v2M12 5v14M9 19h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M13 4v6M7 14v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V5h3M17 4h3v4M20 16v3h-3M7 20H4v-3M4 12h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 16.7v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v5h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5m0 0-4 4m4-4 4 4M5 20h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</defs>
+</svg>
+
+<header class="app-head">
+  <a class="wordmark" href="/" aria-label="QR Studio, inicio"><svg class="wordmark-mark" aria-hidden="true"><use href="#mark"/></svg><span>QR Studio</span></a>
+  <nav class="app-nav" aria-label="Principal">
+    <a href="/crear/">Editor QR</a>
+    <a href="/laboratorio-3d/">Laboratorio 3D</a>
+    <a href="/plantillas/">Plantillas</a>
+    <a href="/proyectos/">Mis proyectos</a>
+  </nav>
+  <div class="app-head-tools" id="app-head-tools"></div>
+</header>
+
+<main id="main">
+<h1 class="sr-only">Laboratorio 3D</h1>
+<div class="lab" id="lab">
+  <section class="tools lab-tools" aria-label="Parámetros del modelo">
+    <div class="lab-intro">
+      <p id="lab-source" class="panel-lead"></p>
+      <a class="btn btn-small" href="/crear/"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>Editar el QR</a>
+    </div>
+    <div class="panels" id="lab-panels"></div>
+  </section>
+  <section class="stage lab-stage" id="lab-stage" aria-label="Vista 3D">
+    <div class="viewer-wrap">
+      <canvas id="lab-canvas" tabindex="0" aria-label="Modelo 3D del código QR. Arrastra para girar, rueda para acercar. Flechas para girar con el teclado, más y menos para el zoom."></canvas>
+      <div id="lab-measures" class="measures" aria-hidden="true"></div>
+      <div id="lab-fallback" class="gl-fallback" hidden><div></div><p>Tu navegador no ofrece WebGL, así que no se puede mostrar la vista 3D. Se muestra el código en 2D; la generación y las descargas funcionan igual.</p></div>
+      <p id="lab-empty" class="preview-msg" hidden>Primero crea un código válido en el <a href="/crear/">editor</a>.</p>
+    </div>
+    <div class="stage-bar lab-bar">
+      <span id="lab-status" class="stage-info" role="status"></span>
+      <span id="lab-dims" class="stage-info dims"></span>
+    </div>
+    <div class="viewctl" id="lab-viewctl">
+      <div class="viewctl-row" role="group" aria-label="Vistas">
+        <button type="button" class="btn btn-small" data-view="iso">Isométrica</button>
+        <button type="button" class="btn btn-small" data-view="front">Frente</button>
+        <button type="button" class="btn btn-small" data-view="top">Planta</button>
+        <button type="button" class="btn btn-small" data-view="side">Lateral</button>
+      </div>
+      <div class="viewctl-row opts">
+        <label class="check"><input type="checkbox" id="opt-ortho"><span>Ortográfica</span></label>
+        <label class="check"><input type="checkbox" id="opt-grid" checked><span>Cuadrícula de 10 mm</span></label>
+        <label class="check"><input type="checkbox" id="opt-measures" checked><span>Cotas</span></label>
+        <label class="check"><input type="checkbox" id="opt-spin"><span>Girar solo</span></label>
+      </div>
+      <div class="viewctl-row opts">
+        <label class="mini">Material <select id="opt-material"><option value="matte">Mate</option><option value="satin">Satinado</option><option value="gloss">Brillante</option></select></label>
+        <label class="mini">Luz (ángulo) <input type="range" id="opt-light-az" min="-3.14" max="3.14" step="0.05" value="0.9"></label>
+        <label class="mini">Intensidad <input type="range" id="opt-light-int" min="0.2" max="1.6" step="0.05" value="1"></label>
+        <button type="button" class="btn btn-small" id="opt-view-shot">Captura PNG</button>
+      </div>
+    </div>
+  </section>
+  <aside class="inspector" aria-label="Revisión y descarga">
+    <h2>Imprimibilidad</h2>
+    <div id="lab-verdict" class="verdict" aria-live="polite"></div>
+    <div id="lab-checks" class="checks"></div>
+    <div class="quick">
+      <h3>Piezas</h3>
+      <div id="lab-parts" class="parts"></div>
+      <h3>Descargar</h3>
+      <div class="quick-row">
+        <button type="button" class="btn btn-ink btn-small" data-dl="stl">STL</button>
+        <button type="button" class="btn btn-ink btn-small" data-dl="3mf">3MF</button>
+        <button type="button" class="btn btn-ink btn-small" data-dl="obj">OBJ</button>
+        <button type="button" class="btn btn-ink btn-small" data-dl="glb">GLB</button>
+      </div>
+      <div class="quick-row"><button type="button" class="btn btn-small" data-dl="zip">ZIP con todo (una pieza por STL)</button></div>
+      <p class="field-hint">Unidades: milímetros. El STL y el OBJ no guardan color; con dos piezas se descargan por separado. 3MF y GLB conservan los colores base.</p>
+      <div class="quick-row"><button type="button" class="btn btn-small" id="lab-save"><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg>Guardar proyecto</button></div>
+    </div>
+  </aside>
+</div>
+<noscript><p class="note" style="margin:24px">El laboratorio 3D necesita JavaScript. Todo se calcula en tu navegador; no se envía ningún dato.</p></noscript>
+
+</main>
+<footer class="app-foot"><a href="/legal/privacidad/">Privacidad</a><a href="/legal/cookies/">Cookies</a><a href="/guias/">Guías</a><button type="button" class="link-btn" data-consent-open>Preferencias de cookies</button></footer>
+
+<script type="module" src="/js/app/site.js"></script>
+<script type="module" src="/js/app/lab-boot.js"></script>
+</body>
+</html>
