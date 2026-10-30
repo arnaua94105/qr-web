@@ -1,0 +1,17 @@
+{
+  "name": "QR Studio",
+  "short_name": "QR Studio",
+  "start_url": "/crear/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

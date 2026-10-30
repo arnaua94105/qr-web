@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /proyectos/
+
+Sitemap: https://qr-studio.example/sitemap.xml

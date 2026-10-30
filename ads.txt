@@ -1,0 +1,3 @@
+# MARCADOR: sustituye el identificador por el tuyo (el de AdSense sin el prefijo «ca-»: pub-1234567890123456).
+# Hasta entonces esta línea NO es válida. Fuente: https://support.google.com/adsense/answer/12171612
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
